@@ -2,6 +2,8 @@ import historicalCryptoTrendsGenerator
 import datetime
 import time
 from typing import List, Dict
+import tools
+
 
 def getTotalOverTrendForCryptos(result):
     totalOverTrend = {}
@@ -12,6 +14,7 @@ def getTotalOverTrendForCryptos(result):
                 break
     return totalOverTrend
 
+
 def getBuysForCryptosAccordingToTrends(result,totalOverTrend,dollarAmount):
     buys = []
     for key, value in result['price'].items():
@@ -21,6 +24,7 @@ def getBuysForCryptosAccordingToTrends(result,totalOverTrend,dollarAmount):
                 break
     print(buys)
     return buys
+
 
 def getBuysForCryptos(result,dollarAmount,results):
     buys = []
@@ -44,6 +48,7 @@ def getCurrentPortfolioWorthFromBuys(buys):
     # total / trend proportionate to price / crypto
     # it's a hype market
 
+
 def getResults(results : List[Dict], amountToInvest):
     for result in results:
 
@@ -53,7 +58,7 @@ def getResults(results : List[Dict], amountToInvest):
 
         buysAccordingToTrends = getBuysForCryptosAccordingToTrends(result,totalOverTrend,amountToInvest)
 
-        historicalCryptoTrendsGenerator.updateCSVForListOfDict(buysAccordingToTrends, "trendBuys"+
+        tools.updateCSVForListOfDict(tools.mergeListOfDicts(buysAccordingToTrends), "trendBuys"+
                                 str(datetime.datetime.now().month)+
                                 str(datetime.datetime.now().day)+".csv")
 
@@ -61,7 +66,7 @@ def getResults(results : List[Dict], amountToInvest):
 
         buys = getBuysForCryptos(result, amountToInvest,results)
 
-        historicalCryptoTrendsGenerator.updateCSVForListOfDict(buys, "nonTrendBuys"+
+        tools.updateCSVForListOfDict(tools.mergeListOfDicts(buys), "nonTrendBuys"+
                                 str(datetime.datetime.now().month)+
                                 str(datetime.datetime.now().day)+".csv")
 

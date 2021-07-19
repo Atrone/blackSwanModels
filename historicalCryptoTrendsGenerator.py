@@ -2,10 +2,7 @@ from coinmarketcapapi import CoinMarketCapAPI
 from pytrends.request import TrendReq
 import datetime
 import operator
-import time
-import csv
-import os.path
-
+import tools
 from typing import List, Dict
 
 def getPriceForCryptoAtTime(startDate,crypto):
@@ -117,30 +114,12 @@ def getListOfDictionariesAtKey(key, listOfDictInDict):
     return [dictInDict[key] for dictInDict in listOfDictInDict]
 
 
-def seeIfFileExists(fname):
-    return os.path.isfile(fname)
-
-
-
-def updateCSVForListOfDict(listOfDictionaries, fname):
-
-    fileExists = seeIfFileExists(fname)
-
-    keys = listOfDictionaries[0].keys()
-
-    with open(fname, "a") as a_file:
-        dict_writer = csv.DictWriter(a_file,fieldnames=keys)
-
-        if not fileExists:
-            dict_writer.writeheader()
-        dict_writer.writerows(listOfDictionaries)
-
 def getResults(date,xHours,limit) -> List[Dict]:
     results = []
     results = getCryptosPriceAndTrendsFromDateEveryXHoursTillToday(date, xHours, limit, results)
     print(results)
     for key in results[0].keys():
         if key != 'date':
-            updateCSVForListOfDict(getListOfDictionariesAtKey(key, results),
+            tools.updateCSVForListOfDict(getListOfDictionariesAtKey(key, results),
                                    str(key) + str(results[0]['date'])[5:10].replace("-", "T") + ".csv")
     return results
