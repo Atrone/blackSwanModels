@@ -4,5 +4,5 @@ import datetime
 
 if __name__ == "__main__":
     cryptoInvestmentAdvisor.getResults(historicalCryptoTrendsGenerator.getResults(
-        datetime.datetime(2021, 6, 19), 336, 10)
+        datetime.datetime(2021, 7, 11), 336, 10)
                                        ,100)

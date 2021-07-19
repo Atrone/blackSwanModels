@@ -8,7 +8,7 @@ def getTotalOverTrendForCryptos(result):
     for key, value in result['price'].items():
         for key1, value1 in result['trends'].items():
             if key == key1:
-                totalOverTrend[key1]= (abs((sum(result['trends'].values())/value1)))
+                totalOverTrend[key1] = (abs((sum(result['trends'].values())/value1)))
                 break
     return totalOverTrend
 
@@ -17,7 +17,7 @@ def getBuysForCryptosAccordingToTrends(result,totalOverTrend,dollarAmount):
     for key, value in result['price'].items():
         for key1, value1 in result['trends'].items():
             if key == key1:
-                buys.append({key1:(abs(totalOverTrend[key1]/sum(totalOverTrend))*dollarAmount/value)})
+                buys.append({key1:(abs(totalOverTrend[key1]/sum(totalOverTrend.values()))*dollarAmount/value)})
                 break
     print(buys)
     return buys
