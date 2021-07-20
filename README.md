@@ -1,5 +1,7 @@
 # cryptoInvestmentAdvisor
 
+Now an async aiohttp rest API with one endpoint.
+
 This service was originally made to test and advertise the Google trends crypto investing strategy (total trend / individual trend is proportionate to performace of individual crypto).
 
 So far, it's proven that in a hype market, this strategy beats the simplest one (just buying Bitcoin) by 60% over 3 months.
@@ -14,4 +16,4 @@ This also does historical, meaning you can model how well this strategy would've
 
 This also compares using trends to not using trends.
 
-This creates csvs of the trends for a given date, the prices for a given date, the hypothetical trend buys on a given date (trendBuysXXXX.csv), and the hypothetical non trend buys on some date.
+This creates csvs of the trends for a given date, the prices for a given date, the hypothetical trend buys on a given date (trendBuysXXXX.csv), and the hypothetical non trend buys on some date
