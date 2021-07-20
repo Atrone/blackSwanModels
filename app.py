@@ -1,6 +1,7 @@
 import datetime
+import os
+
 from aiohttp import web
-import json
 import main
 import tools
 
@@ -23,4 +24,4 @@ if __name__ == "__main__":
     app = web.Application()
     app.router.add_get('/generateHistoricalPriceTrendsAndAdvise', handle)
 
-    web.run_app(app)
+    web.run_app(app, port=os.getenv('PORT'))
