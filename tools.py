@@ -38,8 +38,10 @@ def updateCSVForListOfDict(listOfDictionary, fname):
             dict_writer.writeheader()
         dict_writer.writerows(listOfDictionary)
 
+
 def dateTimeToMonthDay(date):
     return str((date).month) + str((date).day)
+
 
 def getListOfDictFromCSV(fname):
     with open(fname) as f:

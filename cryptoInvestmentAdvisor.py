@@ -48,7 +48,6 @@ def getCurrentPortfolioWorthFromBuys(buys):
     # total / trend proportionate to price / crypto
     # it's a hype market
 
-results = [{'price': {'BTC crypto': 31796.810138247813, 'ETH crypto': 1895.5521368013024, 'USDT crypto': 1.00062070229279, 'BNB crypto': 302.4804892006454, 'ADA crypto': 1.18369795434564, 'USDC crypto': 1.00057362658003, 'XRP crypto': 0.58792189594955, 'DOGE crypto': 0.18223326670003, 'DOT crypto': 12.68214591960496, 'BUSD crypto': 1.00048936213312}, 'trends': {'BTC crypto': 60157.0, 'ETH crypto': 60325, 'USDT crypto': 53684, 'BNB crypto': 56661.0, 'ADA crypto': 58618.0, 'USDC crypto': 37877, 'XRP crypto': 57397.0, 'DOGE crypto': 56497.0, 'DOT crypto': 41280, 'BUSD crypto': 39459}, 'date': datetime.datetime(2021, 7, 19, 0, 0)}]
 
 def getResults(results : List[Dict], amountToInvest):
     for result in results:
@@ -74,6 +73,3 @@ def getResults(results : List[Dict], amountToInvest):
         print(getCurrentPortfolioWorthFromBuys(buys))
 
         time.sleep(65)
-
-if __name__ == "__main__":
-    getResults(results,100)
