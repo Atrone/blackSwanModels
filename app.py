@@ -23,4 +23,4 @@ async def handle(request):
 app = web.Application()
 app.router.add_get('/generateHistoricalPriceTrendsAndAdvise', handle)
 
-web.run_app(app, port=os.getenv('PORT'))
+#web.run_app(app, port=os.getenv('PORT'))
