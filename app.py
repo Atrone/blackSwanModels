@@ -7,6 +7,9 @@ import tools
 
 
 async def handle(request):
+    filelist = [f for f in os.listdir('./') if f.endswith(".csv")]
+    for f in filelist:
+        os.remove(os.path.join('./', f))
     startDate = datetime.datetime.strptime(request.rel_url.query['startDate'],"%Y-%m-%d %H:%M:%S")
     today = datetime.datetime.now()
 
@@ -23,4 +26,4 @@ async def handle(request):
 app = web.Application()
 app.router.add_get('/generateHistoricalPriceTrendsAndAdvise', handle)
 
-#web.run_app(app, port=os.getenv('PORT'))
+web.run_app(app)
