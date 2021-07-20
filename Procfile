@@ -1,1 +1,1 @@
-web: gunicorn app:app --config gunicorn.conf --timeout 9999999
+web: gunicorn app:app --config gunicorn.conf
