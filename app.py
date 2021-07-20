@@ -20,8 +20,7 @@ async def handle(request):
 
     return web.Response(text=(priceData + trendsData + trendBuysData))
 
-if __name__ == "__main__":
-    app = web.Application()
-    app.router.add_get('/generateHistoricalPriceTrendsAndAdvise', handle)
+app = web.Application()
+app.router.add_get('/generateHistoricalPriceTrendsAndAdvise', handle)
 
-    web.run_app(app, port=os.getenv('PORT'))
+web.run_app(app, port=os.getenv('PORT'))
