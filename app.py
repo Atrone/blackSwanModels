@@ -8,7 +8,7 @@ import tools
 
 async def handle(request):
     startDate = datetime.datetime.strptime(request.rel_url.query['startDate'],"%Y-%m-%d %H:%M:%S")
-    startDatePlusOne = datetime.datetime.strptime(request.rel_url.query['startDate'],"%Y-%m-%d %H:%M:%S") + datetime.timedelta(days=1)
+    today = datetime.datetime.now()
 
     main.createResponseCSVs(True,startDate,
                             int(request.rel_url.query['hours']),
@@ -16,7 +16,7 @@ async def handle(request):
                             int(request.rel_url.query['dollars']))
     priceData = (tools.make_json('price'+tools.dateTimeToMonthTDay(startDate)+".csv"))
     trendsData = (tools.make_json('trends'+tools.dateTimeToMonthTDay(startDate)+".csv"))
-    trendBuysData = (tools.make_json('trendBuys'+tools.dateTimeToMonthDay(startDatePlusOne)+".csv"))
+    trendBuysData = (tools.make_json('trendBuys'+tools.dateTimeToMonthDay(today)+".csv"))
 
     return web.Response(text=(priceData + trendsData + trendBuysData))
 
