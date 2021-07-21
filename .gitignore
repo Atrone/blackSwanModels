@@ -1,2 +1,8 @@
 # Project exclude paths
 /venv/
+/.idea/
+/Include/
+/Lib/
+/Scripts/
+/tcl/
+/venv2/
